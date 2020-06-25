@@ -20,6 +20,18 @@ Changes are work in progress ...
 
 ## Development
 
+### pip
+
+```bash
+virtualenv -p python3 venv && source venv/bin/activate
+```
+
+```bash
+pip install -r requirements.txt
+```
+
+### run
+
 ```bash
 ./manage.py runserver
 ```
