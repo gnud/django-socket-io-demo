@@ -1,18 +1,25 @@
 <!DOCTYPE HTML>
-<html>
+<html lang="en">
 <head>
     <title>Django + SocketIO Test</title>
     <script type="text/javascript" src="//code.jquery.com/jquery-3.2.1.slim.min.js"></script>
     <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.0.4/socket.io.slim.js"></script>
     <script type="text/javascript" charset="utf-8">
-        $(document).ready(function(){
-            var socket = io.connect();
+        const MSG_ON = 'ON';
+        const MSG_OFF = 'OFF';
+
+        $(document).ready(function() {
+            const socket = io.connect();
+
+            const status = document.querySelector('#status');
 
             socket.on('connect', function() {
                 socket.emit('my_event', {data: 'I\'m connected!'});
+                status.textContent = MSG_ON;
             });
             socket.on('disconnect', function() {
-                $('#log').append('<br>Disconnected');
+                //$('#log').append('<br>Disconnected');
+                status.textContent = MSG_OFF;
             });
             socket.on('my_response', function(msg) {
                 $('#log').append('<br>Received: ' + msg.data);
@@ -55,6 +62,7 @@
 </head>
 <body>
     <h1>Django + SocketIO Test</h1>
+    <div>STATUS: <span id="status">OFF</span></div>
     <h2>Send:</h2>
     <form id="emit" method="POST" action='#'>
         <input type="text" name="emit_data" id="emit_data" placeholder="Message">
