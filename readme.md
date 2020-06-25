@@ -11,7 +11,7 @@ Changes are work in progress ...
 - Fix disconnects           [ ]
 - Fix slow view loading     [ ]
 - Write tests               [ ]
-- Fix gunicorn/gevent
+- Fix Gunicorn / Gevent
    mismatched versions      [ ] 
 - Env loader package        [ ]
 
@@ -20,17 +20,17 @@ Changes are work in progress ...
 
 ## Development
 
-```python
+```bash
 ./manage.py runserver
 ```
 
-runserver commange has overload in socketio_app
-commands to lets gevent to switch between WSGI request
+runserver command has overload in socketio_app
+commands to lets Gevent to switch between WSGI request
 or WebSocket messages.
 
 ## Production
 
-```python
+```bash
 gunicorn -c gunicorn.cfg.py django_example.wsgi:application
 ```
 
