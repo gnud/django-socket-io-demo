@@ -1,0 +1,11 @@
+django==2.2
+enum-compat==0.0.2
+python-socketio
+python-engineio
+pytz==2018.7
+six==1.10.0
+
+gunicorn[gevent]
+eventlet
+greenlet
+gunicorn
