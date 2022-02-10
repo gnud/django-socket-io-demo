@@ -1,4 +1,4 @@
-django==2.2.20
+django==2.2.27
 enum-compat==0.0.2
 python-socketio
 python-engineio
